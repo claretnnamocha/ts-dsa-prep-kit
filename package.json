@@ -1,0 +1,16 @@
+{
+  "name": "node-js-dsa-prep-kit",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": {
+    "name": "Claret Nnamocha",
+    "email": "devclareo@gmail.com"
+  },
+  "scripts": {
+    "test": "mocha -r ts-node/register tests/**.spec.ts"
+  },
+  "dependencies": {
+    "@types/mocha": "^9.1.1",
+    "mocha": "^10.0.0"
+  }
+}
