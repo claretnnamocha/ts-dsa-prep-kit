@@ -1,5 +1,6 @@
 import assert from "assert";
 import LinkedList from "../Data Structures/LinkedList";
+import Queue from "../Data Structures/Queue";
 
 describe("LinkedList", function () {
   const list: LinkedList = new LinkedList();
@@ -132,5 +133,39 @@ describe("LinkedList", function () {
     assert.strictEqual(list.getHead(), null);
     assert.strictEqual(list.getTail(), null);
     assert.strictEqual(list.size(), 0);
+  });
+});
+
+describe("Queue", function () {
+  let queue: Queue = new Queue();
+  beforeEach(() => {
+    queue = new Queue();
+  });
+
+  it("can add item", function () {
+    queue.enqueue(10);
+    assert.strictEqual(queue.enqueue(10), 10);
+  });
+
+  it("can remove item", function () {
+    queue.enqueue(10);
+    queue.enqueue(20);
+    queue.enqueue(30);
+    assert.strictEqual(queue.dequeue(), 10);
+  });
+
+  it("can get index", function () {
+    queue.enqueue(10);
+    queue.enqueue(20);
+    queue.enqueue(30);
+    assert.strictEqual(queue.get(1), 20);
+  });
+
+  it("can check size", function () {
+    queue.enqueue(10);
+    queue.enqueue(20);
+    queue.enqueue(30);
+    queue.enqueue(40);
+    assert.strictEqual(queue.size(), 4);
   });
 });
