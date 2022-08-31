@@ -1,6 +1,8 @@
 import assert from "assert";
 import BinarySearch from "../Algorithms/BinarySearch";
+import BubbleSort from "../Algorithms/BubbleSort";
 import MergeSort from "../Algorithms/MergeSort";
+import SelectionSort from "../Algorithms/SelectionSort";
 
 describe("BinarySearch", function () {
   const dataset = [
@@ -54,6 +56,50 @@ describe("Sorting Algorithms", () => {
 
     it("can sort an unsorted array with duplicates in descending order", () => {
       const sorted = MergeSort(dataset2, false);
+      assert.deepStrictEqual(sorted, sortedDataset2DESC);
+    });
+  });
+
+  describe("SelectionSort", function () {
+    it("can sort an unsorted array", () => {
+      const sorted = SelectionSort(dataset);
+      assert.deepStrictEqual(sorted, sortedDataset1ASC);
+    });
+
+    it("can sort an unsorted array in descending order", () => {
+      const sorted = SelectionSort(dataset, false);
+      assert.deepStrictEqual(sorted, sortedDataset1DESC);
+    });
+
+    it("can sort an unsorted array with duplicates", () => {
+      const sorted = SelectionSort(dataset2);
+      assert.deepStrictEqual(sorted, sortedDataset2ASC);
+    });
+
+    it("can sort an unsorted array with duplicates in descending order", () => {
+      const sorted = SelectionSort(dataset2, false);
+      assert.deepStrictEqual(sorted, sortedDataset2DESC);
+    });
+  });
+
+  describe("BubbleSort", function () {
+    it("can sort an unsorted array", () => {
+      const sorted = BubbleSort(dataset);
+      assert.deepStrictEqual(sorted, sortedDataset1ASC);
+    });
+
+    it("can sort an unsorted array in descending order", () => {
+      const sorted = BubbleSort(dataset, false);
+      assert.deepStrictEqual(sorted, sortedDataset1DESC);
+    });
+
+    it("can sort an unsorted array with duplicates", () => {
+      const sorted = BubbleSort(dataset2);
+      assert.deepStrictEqual(sorted, sortedDataset2ASC);
+    });
+
+    it("can sort an unsorted array with duplicates in descending order", () => {
+      const sorted = BubbleSort(dataset2, false);
       assert.deepStrictEqual(sorted, sortedDataset2DESC);
     });
   });
