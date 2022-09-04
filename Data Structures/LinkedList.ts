@@ -194,6 +194,28 @@ export class LinkedList {
     return output;
   }
 
+  reverse() {
+    if (this.isEmpty()) return;
+
+    let current: LNode = this.head;
+
+    while (current !== null) {
+      const next = current.getNext();
+      const previous = current.getPrevious();
+
+      current.setPrevious(next);
+      current.setNext(previous);
+
+      current = next;
+    }
+
+    const newTail = this.head;
+    this.head = this.tail;
+    this.tail = newTail;
+    this.head.setPrevious(null);
+    this.tail.setNext(null);
+  }
+
   setIndex(index: number, value: any): LNode {
     this.validateIndex(index);
 

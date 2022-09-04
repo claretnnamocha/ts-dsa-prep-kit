@@ -35,6 +35,18 @@ describe("Data structures", () => {
       assert.strictEqual(list.getIndex(1).getValue(), 20);
     });
 
+    it("can be reversed", function () {
+      list.addItem(10);
+      list.addItem(20);
+      list.addItem(30);
+      list.addItem(40);
+      list.addItem(50);
+      list.reverse();
+
+      assert.deepStrictEqual(list.toArray(), [50, 40, 30, 20, 10]);
+      assert.strictEqual(list.getHead().getValue(), 50);
+    });
+
     it("can return null if index does not exist", function () {
       list.addItem(10);
       list.addItem(20);
