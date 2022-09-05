@@ -14,6 +14,9 @@ export class Stack {
 
   pop() {
     let head = this.list.getHead();
+
+    if (!head) return null;
+
     this.list.removeHead();
     return head.getValue();
   }
