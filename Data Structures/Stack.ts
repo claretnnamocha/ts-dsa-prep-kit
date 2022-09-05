@@ -18,8 +18,8 @@ export class Stack {
     return head.getValue();
   }
 
-  get(index: number) {
-    return this.list.getIndex(index).getValue();
+  peek() {
+    return this.list.getHead().getValue();
   }
 
   size(): number {

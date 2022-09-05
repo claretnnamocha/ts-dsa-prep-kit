@@ -202,11 +202,11 @@ describe("Data structures", () => {
       assert.strictEqual(stack.pop(), 30);
     });
 
-    it("can get index", function () {
+    it("can get first item without removing it from the stack", function () {
       stack.push(10);
       stack.push(20);
       stack.push(30);
-      assert.strictEqual(stack.get(1), 20);
+      assert.strictEqual(stack.peek(), 30);
     });
 
     it("can check size", function () {
