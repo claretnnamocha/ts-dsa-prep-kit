@@ -112,7 +112,6 @@ export class LinkedList {
     const newHead = this.head.getNext();
 
     newHead.setPrevious(null);
-    newHead.setNext(this.head.getNext());
     this.head = newHead;
     this.count -= 1;
   }
@@ -125,7 +124,6 @@ export class LinkedList {
     const newTail = this.tail.getPrevious();
 
     newTail.setNext(null);
-    newTail.setPrevious(this.tail.getPrevious());
     this.tail = newTail;
     this.count -= 1;
   }
