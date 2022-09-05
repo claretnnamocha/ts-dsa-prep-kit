@@ -7,7 +7,9 @@
     "email": "devclareo@gmail.com"
   },
   "scripts": {
-    "test": "mocha -r ts-node/register tests/**.spec.ts"
+    "test": "mocha -r ts-node/register tests/**.spec.ts",
+    "test-folders": "mocha -r ts-node/register tests/**/**.spec.ts",
+    "test-all": "yarn test && yarn test-folders"
   },
   "dependencies": {
     "@types/mocha": "^9.1.1",
