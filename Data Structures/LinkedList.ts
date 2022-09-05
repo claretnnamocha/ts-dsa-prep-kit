@@ -107,7 +107,7 @@ export class LinkedList {
   removeHead() {
     if (this.isEmpty()) throw new Error("List is empty");
 
-    if (this.head == this.tail) this.clear();
+    if (this.head == this.tail) return this.clear();
 
     const newHead = this.head.getNext();
 
@@ -120,7 +120,7 @@ export class LinkedList {
   removeTail() {
     if (this.isEmpty()) throw new Error("List is empty");
 
-    if (this.head == this.tail) this.clear();
+    if (this.head == this.tail) return this.clear();
 
     const newTail = this.tail.getPrevious();
 
