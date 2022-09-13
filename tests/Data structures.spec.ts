@@ -2,6 +2,7 @@ import assert from "assert";
 import LinkedList from "../Data Structures/LinkedList";
 import Queue from "../Data Structures/Queue";
 import Stack from "../Data Structures/Stack";
+import Tree from "../Data Structures/Tree";
 
 describe("Data structures", () => {
   describe("LinkedList", function () {
@@ -215,6 +216,66 @@ describe("Data structures", () => {
       stack.push(30);
       stack.push(40);
       assert.strictEqual(stack.size(), 4);
+    });
+  });
+
+  describe("Tree", function () {
+    let tree: Tree;
+
+    beforeEach(() => {
+      tree = new Tree();
+      tree.insert(7);
+      tree.insert(4);
+      tree.insert(9);
+      tree.insert(1);
+      tree.insert(6);
+      tree.insert(8);
+      tree.insert(10);
+    });
+
+    it("can insert items", () => {
+      assert.strictEqual(tree.getRoot().getValue(), 7);
+      assert.strictEqual(tree.getRoot().getLeftChild().getValue(), 4);
+      assert.strictEqual(
+        tree.getRoot().getRightChild().getLeftChild().getValue(),
+        8
+      );
+    });
+
+    it("can check if item is present", () => {
+      assert.strictEqual(tree.contains(1), true);
+      assert.strictEqual(tree.contains(90), false);
+    });
+
+    it("can perfom depth first traversals", () => {
+      assert.deepStrictEqual(tree.traversePreOrder(), [7, 4, 1, 6, 9, 8, 10]);
+      assert.deepStrictEqual(tree.traverseInOrder(), [1, 4, 6, 7, 8, 9, 10]);
+      assert.deepStrictEqual(tree.traversePostOrder(), [1, 6, 4, 8, 10, 9, 7]);
+    });
+
+    it("can get height", () => {
+      assert.deepStrictEqual(tree.height(), 2);
+
+      tree = new Tree();
+
+      assert.deepStrictEqual(tree.height(), -1);
+    });
+
+    it("can get min value", () => {
+      tree = new Tree();
+      tree.insert(20);
+      tree.insert(30);
+      tree.insert(25); // change this value
+      tree.insert(10);
+      tree.insert(12); // and this value
+      tree.insert(6);
+      tree.insert(3);
+      tree.insert(8);
+
+      tree.getRoot().getRightChild().getLeftChild().setValue(4);
+      tree.getRoot().getLeftChild().getRightChild().setValue(21);
+
+      assert.strictEqual(tree.min(), 3);
     });
   });
 });
