@@ -1,3 +1,10 @@
+/**
+ * Sorts an array using the bubble sort algorithm.
+ *
+ * @param items - The array of items to sort.
+ * @param ascendingOrder - If true, sorts in ascending order; otherwise, sorts in descending order. Defaults to true.
+ * @returns The sorted array.
+ */
 export const BubbleSort = (
   items: Array<any>,
   ascendingOrder: boolean = true
