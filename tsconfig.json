@@ -2,6 +2,6 @@
   "compilerOptions": {
     "esModuleInterop": true,
     "target": "es2016",
-    "lib": ["es2016", "dom"]
+    "lib": ["es2016", "dom"],
   }
 }
