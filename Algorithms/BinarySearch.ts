@@ -1,18 +1,21 @@
-export const BinarySearch = (sortedArray: Array<any>, item: any) => {
-  do {
-    if (sortedArray.length == 1) return sortedArray[0] == item;
+export const BinarySearch = (sortedItems: Array<any>, item: any): boolean => {
+  let left = 0;
+  let right = sortedItems.length - 1;
 
-    const middleIndex = (sortedArray.length / 2) | 0;
+  while (left <= right) {
+    const middleIndex = Math.floor((left + right) / 2);
+    const midItem = sortedItems[middleIndex];
 
-    const midItem = sortedArray[middleIndex];
+    if (midItem === item) return true;
 
-    if (midItem == item) return true;
+    if (midItem > item) {
+      right = middleIndex - 1; // Search left half
+    } else {
+      left = middleIndex + 1; // Search right half
+    }
+  }
 
-    sortedArray =
-      midItem > item
-        ? sortedArray.slice(0, middleIndex)
-        : sortedArray.slice(middleIndex, sortedArray.length);
-  } while (true);
+  return false; // Not found
 };
 
 export default BinarySearch;
