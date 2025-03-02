@@ -1,8 +1,16 @@
+/**
+ * Merges two sorted arrays into a single sorted array.
+ *
+ * @param sortedItems1 - The first sorted array.
+ * @param sortedItems2 - The second sorted array.
+ * @param ascendingOrder - If true, merge in ascending order; otherwise, merge in descending order.
+ * @returns A new array containing all elements from both arrays in the specified sorted order.
+ */
 const merge = (
   sortedItems1: Array<any>,
   sortedItems2: Array<any>,
   ascendingOrder: boolean
-) => {
+): Array<any> => {
   let counter1 = 0,
     counter2 = 0;
   const result = [];
@@ -32,6 +40,13 @@ const merge = (
   ];
 };
 
+/**
+ * Sorts an array using the merge sort algorithm.
+ *
+ * @param items - The array to sort.
+ * @param ascendingOrder - If true, sorts in ascending order; otherwise, sorts in descending order. Defaults to true.
+ * @returns The sorted array.
+ */
 export const MergeSort = (
   items: Array<any>,
   ascendingOrder: boolean = true
